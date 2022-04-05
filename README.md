@@ -4,7 +4,7 @@ Meet app is a progressive, serverless web application (PWA), with React using a 
 upcoming events by location, expand events to see detailed descriptions and view summary event information using charts.
 
 # Website
-<a href="https://leenrichards.github.io/meet/"> meet app </a>
+<a href="https://leenrichards.github.io/meet/" target="_blank"> meet app </a>
 
 # Technical Requirements 
 
