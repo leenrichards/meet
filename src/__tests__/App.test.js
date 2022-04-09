@@ -22,7 +22,7 @@ describe('<App /> component', () => {
     });
 
     test("testing to see if NumberOfEvents input box renders", () => {
-        expect(AppWrapper.find(NumberOfEvents)).toBeTruthy;
+        expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
     });
 
 });
