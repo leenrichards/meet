@@ -1,7 +1,7 @@
 // src/Event.js
 
 import React, { Component } from "react";
-import { Button } from "../node_modules/react-bootstrap";
+import { Button } from "react-bootstrap";
 
 
 class Event extends Component {
@@ -35,7 +35,7 @@ class Event extends Component {
                     <div className={`extra-details ${this.state.collapsed ? "hide" : "show"}`} >
                         <p className='card-title'>About the event:</p>
                         <a className='event-link' href={event.htmlLink} rel="noreferrer" target="_blank">
-                            See details
+                            View details
                         </a>
                         <p className="event-description">{event.description}</p>
                     </div>
