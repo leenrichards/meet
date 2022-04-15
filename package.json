@@ -1,6 +1,7 @@
 {
   "name": "meet",
   "version": "0.1.0",
+  "homepage": "https://leenrichards.github.io/meet/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
