@@ -30,13 +30,15 @@ class CitySearch extends Component {
     render() {
         return (
             <div className="CitySearch">
-                <input
+                <label className="CitySearchLabel">City:&nbsp; <input
                     type="text"
                     className="city"
+
                     value={this.state.query}
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
-                />
+                />  </label>
+
                 <ul className="suggestions"
                     style={this.state.showSuggestions ? {} : { display: 'none' }}>
                     {this.state.suggestions.map((suggestion) => (

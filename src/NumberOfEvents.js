@@ -19,20 +19,20 @@ class NumberOfEvents extends Component {
                 numberOfEvents: value
             });
         }
-        //  this.props.updateNumberOfEvents(event.target.value);
+        this.props.updateNumberOfEvents(event.target.value);
     };
 
     render() {
 
         return (
             <div className='numberOfEvents'>
-
-                <input
-                    type='number'
-                    className='inputNumberOfEvents'
-                    onChange={this.handleInputChanged}
-                    value={this.state.numberOfEvents}
-                />
+                <label className="CitySearchLabel">Show: &nbsp;
+                    <input
+                        type='number'
+                        className='inputNumberOfEvents'
+                        onChange={this.handleInputChanged}
+                        value={this.state.numberOfEvents}
+                    /></label>
             </div>
         )
     }

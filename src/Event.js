@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
-
+import { format } from 'date-fns';
 
 class Event extends Component {
 
@@ -19,29 +19,47 @@ class Event extends Component {
         });
     };
 
+    /*<Button className={`${collapsed ? "show" : "hide"}-details`}
+                    onClick={this.handleClick}>{collapsed ? "Show Details" : "Hide Details"}</Button>
+                    <p className='card-title'>About the event:</p>
+                       <div className="location" >{event.location}</div>*/
+
     render() {
         const { event } = this.props;
         const { collapsed } = this.state;
+        const { formatteddate } = event.start.dateTime.slice(0, 10);
         return (
             <div className="event">
-                <p className="summary">{event.summary}</p>
-                <p className="start-date">{event.start.datetime}</p>
-                <p className="location">{event.location}</p>
 
-                <Button className={`${collapsed ? "show" : "hide"}-details`}
-                    onClick={this.handleClick}>{collapsed ? "Show Details" : "Hide Details"}</Button>
+                <div className="summary" onClick={this.handleClick}>{event.summary}
+
+                    <div className="location">{event.location} </div>
+
+                    <div className="start-date">{event.start.dateTime.slice(0, 10)}
+                        at {event.start.dateTime.slice(11, 16)} ({event.start.timeZone})
+                    </div>
+                </div>
+
+
+
+
+
+
 
                 {!collapsed && (
                     <div className={`extra-details ${this.state.collapsed ? "hide" : "show"}`} >
-                        <p className='card-title'>About the event:</p>
+
+
+
+                        <p className="event-description">{event.description}</p>
+
                         <a className='event-link' href={event.htmlLink} rel="noreferrer" target="_blank">
                             View details
                         </a>
-                        <p className="event-description">{event.description}</p>
                     </div>
 
-
-                )};
+                )}
+                <hr />
             </div>)
     }
 }
