@@ -1,7 +1,24 @@
+:root {
+  --primary-color: #128CFC;
+  --secondary-color: #0B5AA2;
+  --dark-grey: #2b2b2b;
+  --body-font-size: 12pt;
+  --body-font-family: 'Roboto Mono', monospace, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 .App {
   text-align: center;
   padding: 2% 5%;
-  border: 1px solid black; 
+  
 
   top: 0;
   right: 0;
@@ -10,14 +27,13 @@
   margin: auto;
   display: grid;
   place-items: center;
-  background-color: #128CFC;
 }
 
 .App * {
   box-sizing: border-radius;
   font-family: 'Rubik', sans-serif;
   font-size:14px;
-  color: #0B5AA2;
+  color: var(--secondary-color);
   
 }
 
@@ -105,7 +121,8 @@ input[type="text"],
   width: 30%;
   background: #fffffe;
   padding-left: 35px;
-  border-top: 10px solid #0B5AA2;
+  border-top: 10px solid var(--secondary-color);
+  border-bottom: 10px solid var(--secondary-color);
   padding-top: 20px;
   margin-top: 48px;
 }
@@ -204,7 +221,7 @@ width: 80%;
 margin: 0px;
 margin-left: 30px;
 padding-left: 20px;
-border-top:1px solid #0B5AA2;
+border-top:1px solid var(--secondary-color);
 margin: 10px;
 }
 
@@ -231,7 +248,7 @@ margin: 10px;
 
 .summary:hover{
   border-radius: 50px;
-  border: 1px solid #0B5AA2;
+  border: 1px solid var(--secondary-color);
   
 }
 
@@ -262,11 +279,11 @@ margin: 10px;
 }
 
 .google-btn:hover {
-  box-shadow: 0 0 6px #4285f4;
+  box-shadow: 0 0 6px var(--primary-color);
 }
 
 .google-btn:active {
-  background: #1669f2;
+  background: var(--primary-color);
 }
 
 .google-icon-wrapper {
