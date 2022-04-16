@@ -64,11 +64,19 @@ describe('<App/> integration', () => {
         AppWrapper.unmount();
     });
 
-    test("Passing the number of events (32 events)", () => {
+    test("Passing the number of events (32 events)", async () => {
         const AppWrapper = mount(<App />);
         const AppNumberOfEventsState = AppWrapper.state("numberOfEvents");
         expect(AppNumberOfEventsState).not.toEqual(undefined);
-        expect(AppWrapper.find(EventList).props.NumberOfEvents).toEqual(32);
+
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(32);
+
+        const eventObject = { target: { value: 1 } };
+        await NumberOfEventsWrapper.find(".inputNumberOfEvents").simulate("change", eventObject);
+        AppWrapper.update();
+        expect(AppWrapper.state("numberOfEvents")).toEqual(1);
+
         AppWrapper.unmount();
     });
 

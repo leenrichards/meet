@@ -34,7 +34,7 @@ class App extends Component {
       {
         numberOfEvents,
       },
-      this.updateEvents(this.state.locations, numberOfEvents)
+      this.updateEvents(null, numberOfEvents)
     );
   };
 
@@ -49,14 +49,14 @@ class App extends Component {
       const locationEvents =
         location === 'all'
           ? events
-          : location !== "all" && eventCount === 0
+          : location !== "all" && eventCount === undefined
             ? events.filter((event) => event.location === location)
             : events.slice(0, eventCount);
 
       if (this.mounted) {
         this.setState({
           events: locationEvents,
-          numberOfEvents: eventCount
+          numberOfEvents: eventCount ?? this.state.numberOfEvents,
         });
       }
     });
