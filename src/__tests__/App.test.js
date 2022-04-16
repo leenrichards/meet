@@ -27,9 +27,6 @@ describe('<App /> component', () => {
     test("testing to see if NumberOfEvents input box renders", () => {
         expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
     });
-
-
-
 });
 
 
@@ -53,7 +50,21 @@ describe('<App/> integration', () => {
         AppWrapper.unmount();
     });
 
+    test("Passing the number of events (32 events)", async () => {
+        const AppWrapper = mount(<App />);
+        const AppNumberOfEventsState = AppWrapper.state("numberOfEvents");
+        expect(AppNumberOfEventsState).not.toEqual(undefined);
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(32);
 
+        const eventObject = { target: { value: 1 } };
+        await NumberOfEventsWrapper.find(".inputNumberOfEvents").simulate("change", eventObject);
+        AppWrapper.update();
+        expect(AppWrapper.state("numberOfEvents")).toEqual(1);
+
+        AppWrapper.unmount();
+
+    });
 
     test('get list of all events when user selects "See all cities"', async () => {
         const AppWrapper = mount(<App />);
@@ -64,13 +75,7 @@ describe('<App/> integration', () => {
         AppWrapper.unmount();
     });
 
-    test("Passing the number of events (32 events)", () => {
-        const AppWrapper = mount(<App />);
-        const AppNumberOfEventsState = AppWrapper.state("numberOfEvents");
-        expect(AppNumberOfEventsState).not.toEqual(undefined);
-        expect(AppWrapper.find(EventList).props.NumberOfEvents).toEqual(32);
-        AppWrapper.unmount();
-    });
+
 
 });
 
