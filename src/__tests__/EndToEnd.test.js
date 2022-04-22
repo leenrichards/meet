@@ -64,7 +64,7 @@ describe('show/hide an event details', () => {
 
         test("When user hasn’t searched for a city, show upcoming events from all cities", async () => {
             const countEvents = await page.$$eval(".event", (element) => element.length);
-            expect(countEvents).toBe(249);
+            expect(countEvents).toBe(32);
         });
     });
 

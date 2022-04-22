@@ -16,10 +16,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log("state", this.state.numberOfEvents);
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({
+          events: events.slice(0, this.state.numberOfEvents),
+          locations: extractLocations(events)
+        });
       }
     });
   }
@@ -30,6 +34,7 @@ class App extends Component {
 
   //Update number of events based on numberofEvents parameter
   updateNumberOfEvents = (numberOfEvents) => {
+    console.log("updateNumberOfEvents", numberOfEvents);
     this.setState(
       {
         numberOfEvents,
@@ -44,7 +49,7 @@ class App extends Component {
     this.mounted = true;
 
     getEvents().then((events) => {
-      //console.log("test", eventCount);
+      console.log("updateEvents", eventCount);
 
       const locationEvents =
         location === "all"
