@@ -3,7 +3,7 @@ import NumberOfEvents from './NumberOfEvents';
 
 class CitySearch extends Component {
     state = {
-        query: '',
+        query: 'all',
         suggestions: [],
         showSuggestions: undefined
     }

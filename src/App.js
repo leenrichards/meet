@@ -8,15 +8,18 @@ import { getEvents, extractLocations } from './api';
 import './nprogress.css';
 
 class App extends Component {
-  //create events state
+
+  //------CREATE STATE EVENTS--------------
   state = {
     events: [],
     locations: [],
-    numberOfEvents: 32
+    numberOfEvents: 32,
+    currentLocation: ""
   }
 
+  //------COMPONENT MOUNTED---------------
   componentDidMount() {
-    //  console.log("state", this.state.numberOfEvents);
+
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
@@ -26,15 +29,17 @@ class App extends Component {
         });
       }
     });
+    console.log("locations", this.state.locations);
   }
 
+  //------COMPONENT UNMOUNTED---------------
   componentWillUnmount() {
     this.mounted = false;
   }
 
-  //Update number of events based on numberofEvents parameter
+  //------UPDATE NUMBER OF EVENTS -------------
   updateNumberOfEvents = (numberOfEvents) => {
-    //console.log("updateNumberOfEvents", numberOfEvents);
+
     this.setState(
       {
         numberOfEvents,
@@ -43,31 +48,44 @@ class App extends Component {
     );
   };
 
-  //Update events based on location parameter
+  //------UPDATE LIST OF EVENTS -------------
   updateEvents = (location, eventCount) => {
 
     this.mounted = true;
 
     getEvents().then((events) => {
-      //   console.log("updateEvents", eventCount);
 
+      // if eventCount is set we use that value, if not we use the state value
+      const limit = eventCount ?? this.state.numberOfEvents;
+
+      // if currentLocation is set we use that value, if not we use the state value
+      const currentLocation = location ?? this.state.currentLocation;
+
+      // return all the events or just the filtered slice
       const locationEvents =
-        location === "all"
-          ? events
-          : location !== "all" && eventCount === undefined
 
-            ? events.filter((event) => event.location === location)
-            : events.slice(0, eventCount);
+        //If currentlocation is set to all 
+        currentLocation === "all"
+
+          //Then return all events
+          ? events
+
+          //Otherwise filter location based on user location and limit set by user  
+          : events
+            .filter((event) => event.location === currentLocation)
+            .slice(0, limit);
 
       if (this.mounted) {
         this.setState({
           events: locationEvents,
-          numberOfEvents: eventCount ?? this.state.numberOfEvents,
+          numberOfEvents: limit,
+          currentLocation: currentLocation,
         });
       }
     });
   };
 
+  //------RENDER PAGE -------------
   render() {
 
     const { events, locations, numberOfEvents } = this.state;
