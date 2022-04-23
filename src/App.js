@@ -14,7 +14,7 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    currentLocation: ""
+    currentLocation: "all"
   }
 
   //------COMPONENT MOUNTED---------------
@@ -25,11 +25,12 @@ class App extends Component {
       if (this.mounted) {
         this.setState({
           events: events.slice(0, this.state.numberOfEvents),
-          locations: extractLocations(events)
+          locations: extractLocations(events),
+
         });
       }
     });
-    console.log("locations", this.state.locations);
+
   }
 
   //------COMPONENT UNMOUNTED---------------
@@ -51,15 +52,18 @@ class App extends Component {
   //------UPDATE LIST OF EVENTS -------------
   updateEvents = (location, eventCount) => {
 
+
     this.mounted = true;
 
     getEvents().then((events) => {
 
       // if eventCount is set we use that value, if not we use the state value
       const limit = eventCount ?? this.state.numberOfEvents;
-
+      console.log("Location2", location);
+      console.log("state location", this.state.currentLocation);
       // if currentLocation is set we use that value, if not we use the state value
       const currentLocation = location ?? this.state.currentLocation;
+      console.log("currentLocation", currentLocation);
 
       // return all the events or just the filtered slice
       const locationEvents =
@@ -68,7 +72,8 @@ class App extends Component {
         currentLocation === "all"
 
           //Then return all events
-          ? events
+          ? events.slice(0, limit)
+
 
           //Otherwise filter location based on user location and limit set by user  
           : events
