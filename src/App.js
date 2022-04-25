@@ -59,11 +59,10 @@ class App extends Component {
 
       // if eventCount is set we use that value, if not we use the state value
       const limit = eventCount ?? this.state.numberOfEvents;
-      console.log("Location2", location);
-      console.log("state location", this.state.currentLocation);
+
       // if currentLocation is set we use that value, if not we use the state value
       const currentLocation = location ?? this.state.currentLocation;
-      console.log("currentLocation", currentLocation);
+
 
       // return all the events or just the filtered slice
       const locationEvents =

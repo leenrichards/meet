@@ -8,7 +8,6 @@
 
 body {
   background-color: var(--primary-color);
-  color: var(--secondary-color);
   font-family: var(--body-font-family);
   font-weight: 400;
   font-size: 16px;
@@ -18,9 +17,7 @@ body {
 .App {
   text-align: center;
   padding: 2% 5%;
-  
-
-  top: 0;
+  top: 10px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -30,11 +27,8 @@ body {
 }
 
 .App * {
-  box-sizing: border-radius;
   font-family: 'Rubik', sans-serif;
   font-size:14px;
-  color: var(--secondary-color);
-  
 }
 
 ul {
@@ -179,9 +173,26 @@ input[type="text"],
   font-family: sans-serif;
 }
 
-.Alert {
+.CityAlert  {
   position: fixed;
-  top: 20px;
+  top: 0;
+  left: 40%;
+  margin-left: 20px;
+  color: red;
+  font-weight: bold;
+  background-color: white;
+  margin-top: 5px;
+}
+
+.NumberAlert {
+  position: fixed;
+  top: 0;
+  left: 52%;
+  margin-left: 20px;
+  color: red;
+  font-weight: bold;
+  background-color: white;
+  margin-top: 5px;
 }
 
 .data-vis-wrapper {
@@ -238,6 +249,7 @@ margin: 10px;
   font-size: 0.8rem;
 }
 
+
 .event-link:hover {
   padding-left: 30px;
   text-decoration: none;
@@ -249,8 +261,10 @@ margin: 10px;
 .summary:hover{
   border-radius: 50px;
   border: 1px solid var(--secondary-color);
-  
+  background: #eee;
 }
+
+
 
 .recharts-surface {
   overflow: visible;
