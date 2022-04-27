@@ -79,6 +79,16 @@ export const getEvents = async () => {
     if (window.location.href.startsWith('http://localhost')) {
         return mockData;
     }
+
+    //If app is offline load events from localstorage    
+    if (!navigator.onLine) {
+        const data = localStorage.getItem("lastEvents");
+        NProgress.done();
+        // console.log(events);
+        return data ? JSON.parse(data).events : [];;
+    }
+
+    //Otherwise get accesstoken and get events from api
     const token = await getAccessToken();
 
     if (token) {
