@@ -10,6 +10,7 @@ import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
 
+
 const removeQuery = () => {
     if (window.history.pushState && window.location.pathname) {
         var newurl =
@@ -76,7 +77,7 @@ const checkToken = async (accessToken) => {
 
 export const getEvents = async () => {
 
-    console.log("here");
+
     if (window.location.href.startsWith('http://localhost')) {
         return mockData;
     }
@@ -85,7 +86,6 @@ export const getEvents = async () => {
     if (!navigator.onLine) {
         const data = localStorage.getItem("lastEvents");
         NProgress.done();
-
         return data ? JSON.parse(data).events : [];;
     }
 

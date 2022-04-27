@@ -27,5 +27,20 @@ class NumberAlert extends Component {
     }
 }
 
+class OfflineAlert extends Component {
+    constructor(props) {
+        super(props);
+        this.color = null;
+    }
 
-export { CityAlert, NumberAlert };
+    render() {
+        return (
+            <div className="OfflineAlert" >{this.props.text}</div>
+        );
+    }
+}
+
+
+
+
+export { CityAlert, NumberAlert, OfflineAlert };
