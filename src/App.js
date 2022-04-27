@@ -131,6 +131,7 @@ class App extends Component {
           />
         </div>
         <div className="ChartArea">
+          <h4 class="ChartTitle"> Number of Events per City</h4>
           <ResponsiveContainer height={400} width={800} >
             <ScatterChart
 

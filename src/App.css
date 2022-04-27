@@ -111,6 +111,11 @@ input[type="text"],
   background-color: #bcdcdb;
 }
 
+.ChartTitle{
+  font-size: 1.5rem;
+ 
+}
+
 .EventList {
   width: 40%;
   background: #fffffe;
