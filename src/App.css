@@ -118,7 +118,6 @@ input[type="text"],
   border-top: 10px solid var(--secondary-color);
   border-bottom: 10px solid var(--secondary-color);
   padding-top: 20px;
-  margin-top: 48px;
 }
 
 .event {
@@ -205,16 +204,18 @@ input[type="text"],
   margin-top: 5px;
 }
 
-.data-vis-wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+.ChartArea{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 80%;
+    box-shadow: 10px 10px 2px var(--secondary-color);
+    border-radius: 5px;
+    margin: 3rem 5vw;
+    border: 0.2rem solid var(--secondary-color);
+    }
 
-.data-vis-wrapper .recharts-responsive-container {
-  min-width: 100%;
-  display: flex;
-}
 
 .summary{
   padding-left: 30px;
