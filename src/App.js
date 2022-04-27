@@ -112,7 +112,7 @@ class App extends Component {
           />
         </div>
         <EventList events={events} />
-        <OfflineAlert text={this.state.infoText} />
+        <OfflineAlert text={this.state.warningText} />
 
 
       </div>
