@@ -76,6 +76,7 @@ const checkToken = async (accessToken) => {
 
 export const getEvents = async () => {
 
+    console.log("here");
     if (window.location.href.startsWith('http://localhost')) {
         return mockData;
     }
