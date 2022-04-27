@@ -15,12 +15,13 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    currentLocation: "all"
+    currentLocation: "all",
+    warningText: ""
   }
 
   //------COMPONENT MOUNTED---------------
   componentDidMount() {
-    let warningText = '';
+    this.state.warningText = "";
 
     this.mounted = true;
     getEvents().then((events) => {
@@ -31,7 +32,7 @@ class App extends Component {
         });
       }
       if (!navigator.onLine) {
-        warningText = 'Warning: You are offline. List of events may not be the most current'
+        this.state.warningText = 'Warning: You are offline. List of events may not be the most current'
       }
     });
 
@@ -96,7 +97,7 @@ class App extends Component {
   //------RENDER PAGE -------------
   render() {
 
-    const { events, locations, numberOfEvents } = this.state;
+    const { events, locations, numberOfEvents, warningText } = this.state;
     return (
       <div className="App">
 
@@ -111,8 +112,9 @@ class App extends Component {
             updateNumberOfEvents={this.updateNumberOfEvents}
           />
         </div>
+
         <EventList events={events} />
-        <OfflineAlert text={this.state.warningText} />
+        <OfflineAlert text={warningText} />
 
 
       </div>
