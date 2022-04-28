@@ -148,6 +148,7 @@ class App extends Component {
             </ScatterChart>
           </ResponsiveContainer>
         </div>
+
         <EventList events={events} />
         <OfflineAlert text={warningText} />
 

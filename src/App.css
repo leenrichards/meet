@@ -113,8 +113,10 @@ input[type="text"],
 
 .ChartTitle{
   font-size: 1.5rem;
+  font-weight: bold;
  
 }
+
 
 .EventList {
   width: 40%;
@@ -123,6 +125,7 @@ input[type="text"],
   border-top: 10px solid var(--secondary-color);
   border-bottom: 10px solid var(--secondary-color);
   padding-top: 20px;
+  margin-top: 0;
 }
 
 .event {
