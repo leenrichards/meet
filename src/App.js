@@ -36,7 +36,9 @@ class App extends Component {
 
   //------COMPONENT MOUNTED---------------
   componentDidMount() {
-    this.state.warningText = "";
+    this.setState({
+      warningText: ''
+    });
 
     this.mounted = true;
     getEvents().then((events) => {
