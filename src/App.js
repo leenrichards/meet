@@ -137,6 +137,7 @@ class App extends Component {
             updateNumberOfEvents={this.updateNumberOfEvents}
           />
         </div>
+
         <div className="ChartArea">
           <h4 className="ChartTitle"> Number of Events per City</h4>
           <div className="ChartWrapper">
