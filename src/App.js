@@ -47,7 +47,9 @@ class App extends Component {
         });
       }
       if (!navigator.onLine) {
-        this.state.warningText = 'Warning: You are offline. List of events may not be the most current'
+        this.setState({
+          warningText: 'Warning: You are offline. List of events may not be the most current',
+        });
       }
     });
 
@@ -131,7 +133,7 @@ class App extends Component {
           />
         </div>
         <div className="ChartArea">
-          <h4 class="ChartTitle"> Number of Events per City</h4>
+          <h4 className="ChartTitle"> Number of Events per City</h4>
           <ResponsiveContainer height={400} width={800} >
             <ScatterChart
 
@@ -148,9 +150,9 @@ class App extends Component {
             </ScatterChart>
           </ResponsiveContainer>
         </div>
-
-        <EventList events={events} />
         <OfflineAlert text={warningText} />
+        <EventList events={events} />
+
 
 
       </div>
