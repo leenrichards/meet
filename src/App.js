@@ -7,7 +7,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import './nprogress.css';
 import { OfflineAlert } from './Alert';
-
+import { PieChart, Pie, Sector, Cell } from 'recharts';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
@@ -118,6 +118,9 @@ class App extends Component {
   render() {
 
     const { events, locations, numberOfEvents, warningText } = this.state;
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+
     return (
       <div className="App">
 
@@ -134,6 +137,7 @@ class App extends Component {
         </div>
         <div className="ChartArea">
           <h4 className="ChartTitle"> Number of Events per City</h4>
+
           <ResponsiveContainer height={400} width={800} >
             <ScatterChart
 
