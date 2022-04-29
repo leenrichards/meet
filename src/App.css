@@ -212,17 +212,19 @@ input[type="text"],
   margin-top: 5px;
 }
 
-.ChartArea{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.ChartArea{  
+    align-items: center;    
     background-color: white;
-    width: 80%;
     box-shadow: 10px 10px 2px var(--secondary-color);
     border-radius: 5px;
     margin: 3rem 5vw;
     border: 0.2rem solid var(--secondary-color);
-    }
+  }
+
+ .ChartWrapper{
+  align-items: center;
+  display: flex;
+ }
 
 
 .summary{

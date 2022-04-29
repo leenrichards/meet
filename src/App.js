@@ -7,7 +7,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import './nprogress.css';
 import { OfflineAlert } from './Alert';
-import { PieChart, Pie, Sector, Cell } from 'recharts';
+import { EventGenre } from './EventGenre';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
@@ -137,22 +137,26 @@ class App extends Component {
         </div>
         <div className="ChartArea">
           <h4 className="ChartTitle"> Number of Events per City</h4>
+          <div className="ChartWrapper">
 
-          <ResponsiveContainer height={400} width={800} >
-            <ScatterChart
+            <EventGenre events={events} />
 
-              margin={{
-                top: 20, right: 20, bottom: 20, left: 20,
 
-              }}
-            >
-              <CartesianGrid />
-              <XAxis type="category" dataKey="city" name="city" />
-              <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter data={this.getData()} fill="#8884d8" />
-            </ScatterChart>
-          </ResponsiveContainer>
+
+            <ResponsiveContainer height={400} width={800} style="width: 100%; height: 400px;">
+              <ScatterChart
+                margin={{
+                  top: 20, right: 20, bottom: 20, left: 20,
+                }}
+              >
+                <CartesianGrid />
+                <XAxis type="category" dataKey="city" name="city" />
+                <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                <Scatter data={this.getData()} fill="#8884d8" />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
         </div>
         <OfflineAlert text={warningText} />
         <EventList events={events} />
