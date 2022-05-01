@@ -12,6 +12,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
+  
 }
 .HeaderTitle{
   color: white;
@@ -81,7 +82,7 @@ input[type="text"],
   width: 200px;
 }
 
-.searchboxes{
+.SearchBoxes{
   display: grid;
   grid-template-columns: 7fr 5fr;
 
@@ -172,8 +173,6 @@ input[type="text"],
   font-style: italic;
 }
 
-
-
 .numberOfEvents {
   display: flex;
   flex-direction: column;
@@ -201,6 +200,7 @@ input[type="text"],
   background-color: white;
   margin-top: 5px;
 }
+
 .OfflineAlert {
   position: fixed;
   top: 0;
@@ -237,14 +237,11 @@ input[type="text"],
   align-items: center;
   display: flex;
   flex-direction: row;
- 
  }
-
 
 .summary{
   padding-left: 30px;
   padding-top: 15px;
-  
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
@@ -277,6 +274,7 @@ margin: 10px;
   color:gray;
   padding-bottom: 0.5rem;
 }
+
 .event-link:link {
   padding-left: 30px;
   text-decoration: none;
@@ -284,13 +282,11 @@ margin: 10px;
   font-size: 0.8rem;
 }
 
-
 .event-link:hover {
   padding-left: 30px;
   text-decoration: none;
   font-weight: bold;
   color:#01aaf8;
- 
 }
 
 .summary:hover{
@@ -298,8 +294,6 @@ margin: 10px;
   border: 1px solid var(--secondary-color);
   background: #eee;
 }
-
-
 
 .recharts-surface {
   overflow: visible;
@@ -361,8 +355,6 @@ margin: 10px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
 }
-
-
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {

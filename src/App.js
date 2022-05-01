@@ -126,7 +126,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div className="searchboxes">
+        <div className="SearchBoxes">
           <CitySearch
             locations={locations}
             updateEvents={this.updateEvents}
